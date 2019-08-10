@@ -13,10 +13,16 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.DataContext>
+        <local:MySliderViewModel/>
+    </Window.DataContext>
+
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -36,18 +42,21 @@
             Margin="0 50 0 0"/>
 
         <Slider
+            Name="theSlider"
             Grid.Row="2"
             Minimum="0"
             Maximum="255"
             Style="{StaticResource MaterialDesignDiscreteSlider}"
             ToolTip="MaterialDesignDiscreteSlider"
-            Value="0"
+            Value="{Binding SliderValue, UpdateSourceTrigger=PropertyChanged}"
             Width="280"
             Margin="0 0 0 0"/>
-
+        
+        
+        
         <TextBlock
             Grid.Row ="3"
-            Text="Value = "
+            Text="{Binding SliderValue}"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             FontSize="30"
@@ -69,6 +78,7 @@
             Maximum="255"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            Value="{Binding SliderValue, UpdateSourceTrigger=PropertyChanged}"
             Width="300"
             Height="40"/>
            

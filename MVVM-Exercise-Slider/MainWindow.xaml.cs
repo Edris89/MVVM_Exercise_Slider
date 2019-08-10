@@ -24,5 +24,10 @@ namespace MVVM_Exercise_Slider
         {
             InitializeComponent();
         }
+
+        private void TheSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
+        }
     }
 }
